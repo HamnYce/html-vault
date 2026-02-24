@@ -1,0 +1,18 @@
+<% if errors %>
+    <% errors.full_messages.each do |error_msg| %>
+        <%= error_msg %>
+        <br>
+    <% end %>
+<% end %>
+<form action="/snippets" method="post" >
+    <label for="snippet_title">Title</label>
+    <input type="text" name="snippet_title" autocomplete="off" value="<%= snippet.title %>">
+
+    <label for="snippet_tags">Tags (comma seperated)</label>
+    <input type="text" name="snippet_tags" autocomplete="off" value="<%= snippet.tags %>">
+
+    <label for="snippet_html_content">Raw HTML</label>
+    <textarea name="snippet_html_content" id="snippet_html_content"><%= snippet.html_content %></textarea>
+
+    <button type="submit">Submit</button>
+</form>

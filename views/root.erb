@@ -1,0 +1,6 @@
+<a href="/new">new<a>
+<% snippets.each do |snippet| %>
+<div>
+    <a href="/s/<%= snippet.slug %>"><%= snippet.title %></a>
+</div>
+<% end %>
