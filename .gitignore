@@ -1,0 +1,23 @@
+/.ruby-lsp/
+
+# SQLite databases and journals
+*.sqlite3
+*.sqlite3-journal
+
+# Bundler and gems
+/vendor/bundle/
+.bundle/
+
+# Logs and temp files
+log/
+tmp/
+*.log
+
+# Editor and OS files
+.DS_Store
+*.swp
+*.swo
+
+# Env / credentials (if added later)
+.env
+.env.*
