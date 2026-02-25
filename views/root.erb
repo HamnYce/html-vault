@@ -26,7 +26,7 @@
           </div>
           <div class="actions">
             <a href="<%= snippet_path %>/edit">Edit</a>
-            <form action="<%= snippet_path %>" method="post">
+            <form action="<%= snippet_path %>" method="post" onsubmit="return confirm('Delete this snippet?');">
               <input type="hidden" name="_method" value="DELETE">
               <button type="submit" class="btn btn-delete">Delete</button>
             </form>
