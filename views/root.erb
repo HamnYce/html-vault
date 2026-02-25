@@ -1,6 +1,40 @@
-<a href="/new">new<a>
-<% snippets.each do |snippet| %>
-<div>
-    <a href="/s/<%= snippet.slug %>"><%= snippet.title %></a>
+<div class="page">
+  <header class="header">
+    <a href="/" class="brand">HTML Vault</a>
+    <div class="search-wrap">
+      <label for="snippet-filter" class="visually-hidden">Filter by title or tag</label>
+      <input type="search" name="snippet-filter" id="snippet-filter" placeholder="Filter by title or tag…" autocomplete="off">
+    </div>
+    <a href="/new" class="btn">New Snippet</a>
+  </header>
+
+  <main>
+    <div id="snippet-list" class="snippet-grid">
+      <% snippets.each do |snippet| %>
+        <% snippet_path = "/s/#{snippet.slug}" %>
+        <section class="snippet-card" data-title="<%= snippet.title %>" data-slug="<%= snippet.slug %>">
+          <h2 class="card-title">
+            <a href="<%= snippet_path %>"><%= snippet.title %></a>
+          </h2>
+          <ul class="tag-list">
+            <% snippet.tag_list.each do |tag| %>
+              <li><span class="tag-span" data-tag="<%= tag %>"><%= tag %></span></li>
+            <% end %>
+          </ul>
+          <div class="preview-wrap">
+            <iframe src="/s/<%= snippet.slug %>" title="Preview of <%= snippet.title %>"></iframe>
+          </div>
+          <div class="actions">
+            <a href="<%= snippet_path %>/edit">Edit</a>
+            <form action="<%= snippet_path %>" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" class="btn btn-delete">Delete</button>
+            </form>
+          </div>
+        </section>
+      <% end %>
+    </div>
+  </main>
 </div>
-<% end %>
+
+<script src="/app/snippet_filter.js"></script>
