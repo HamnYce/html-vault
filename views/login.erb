@@ -1,0 +1,33 @@
+<div class="page auth-page">
+  <div class="auth-card">
+    <h1 class="auth-title">Sign in</h1>
+    <p class="auth-subtitle">Access your HTML Vault</p>
+
+    <form action="/login" method="post" class="auth-form">
+      <div class="auth-field">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          name="username"
+          autocomplete="username"
+          autofocus
+        >
+      </div>
+
+      <div class="auth-field">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          autocomplete="current-password"
+        >
+      </div>
+
+      <div class="auth-actions">
+        <button type="submit" class="btn">Login</button>
+      </div>
+    </form>
+  </div>
+</div>

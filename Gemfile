@@ -20,3 +20,7 @@ group :development, :test do
   gem "standardrb"
   gem "erb_lint"
 end
+
+gem "bcrypt", "~> 3.1"
+
+gem "dotenv", "~> 3.2"

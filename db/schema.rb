@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_02_24_170404) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_26_073612) do
   create_table "snippets", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.text "html_content", null: false
@@ -19,5 +19,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_02_24_170404) do
     t.string "title", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_snippets_on_slug", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "password_digest", null: false
+    t.datetime "updated_at", null: false
+    t.string "username", null: false
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 end
