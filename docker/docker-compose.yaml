@@ -10,3 +10,5 @@ services:
     volumes:
       - ../db.sqlite3:/app/db.sqlite3:rw
     command: ["bundle", "exec", "rake", "run"]
+    networks:
+      - proxt-net
