@@ -2,8 +2,8 @@ require "sinatra/activerecord/rake"
 
 task default: %w[run]
 
-desc "run the app with rerun"
-task :dev do
+desc "run the app"
+task :run do
   ruby "./app.rb"
 end
 
