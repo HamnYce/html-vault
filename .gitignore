@@ -20,4 +20,3 @@ tmp/
 
 # Env / credentials (if added later)
 .env
-.env.*
