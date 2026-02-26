@@ -1,0 +1,12 @@
+services:
+  html-vault:
+    build: 
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - 5050:8080
+    env_file:
+      - ../.env
+    volumes:
+      - ../db.sqlite3:/app/db.sqlite3:rw
+    command: ["bundle", "exec", "rake", "run"]
