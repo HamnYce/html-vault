@@ -19,6 +19,8 @@ enable :sessions
 set :bind, ENV.fetch("HOST", "0.0.0.0")
 set :port, ENV.fetch("PORT", 8080)
 set :session_secret, ENV.fetch("SESSION_SECRET") { SecureRandom.hex(64) }
+set :host_authorization, permitted_hosts: ENV.fetch("PERMITTED_HOSTS").split(",").map(&:strip)
+
 
 set :database, {adapter: "sqlite3", database: ENV.fetch("DATABASE_URI")}
 
