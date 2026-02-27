@@ -4,12 +4,15 @@ RUN apk add --no-cache build-base
 
 WORKDIR /app
 
-COPY Gemfile Gemfile.lock ./
+RUN touch db.sqlite3
+
+COPY Gemfile Gemfile.lock Rakefile ./
 
 RUN bundle i
 
+COPY db db
 COPY models models
 COPY views views
 COPY public public 
-COPY app.rb Rakefile ./
+COPY app.rb .
 
