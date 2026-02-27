@@ -1,14 +1,13 @@
 services:
   html-vault:
+    container_name: html-vault
     build: 
       context: ../
       dockerfile: ./docker/Dockerfile
-    ports:
-      - 5050:8080
-    env_file:
-      - ../.env
     volumes:
       - ../db.sqlite3:/app/db.sqlite3:rw
-    command: ["bundle", "exec", "rake", "run"]
-    networks:
-      - proxt-net
+    command: bundle e rake run
+    ports:
+      - "3000:80"
+    env_file:
+      - ../.env
